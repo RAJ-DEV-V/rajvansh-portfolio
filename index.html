@@ -416,6 +416,84 @@
       backdrop-filter: blur(18px);
     }
 
+    .certificate-showcase {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .certificate-showcase::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top right, rgba(255, 196, 0, 0.12), transparent 24%),
+        radial-gradient(circle at bottom left, rgba(255, 145, 0, 0.12), transparent 28%);
+      pointer-events: none;
+    }
+
+    .certificates-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .certificate-card {
+      padding: 1.4rem;
+      position: relative;
+    }
+
+    .certificate-card.featured {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: minmax(260px, 0.95fr) minmax(0, 1.05fr);
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .certificate-media {
+      position: relative;
+    }
+
+    .certificate-preview {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: contain;
+      display: block;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background:
+        linear-gradient(135deg, rgba(255, 145, 0, 0.18), rgba(255, 196, 0, 0.08)),
+        rgba(15, 23, 42, 0.78);
+      box-shadow: 0 22px 40px rgba(2, 6, 23, 0.35);
+    }
+
+    .certificate-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 196, 0, 0.14);
+      color: var(--accent-soft);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .certificate-meta p {
+      margin-top: 0.9rem;
+    }
+
+    .certificate-note {
+      margin-top: 0.8rem;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
     .hero-copy {
       position: relative;
     }
@@ -893,7 +971,9 @@
       .about-grid,
       .contact-grid,
       .skills-grid,
-      .volunteer-grid {
+      .volunteer-grid,
+      .certificates-grid,
+      .certificate-card.featured {
         grid-template-columns: 1fr;
       }
 
@@ -1014,6 +1094,7 @@
         <li><a href="#experience">Experience</a></li>
         <li><a href="#education">Education</a></li>
         <li><a href="#skills">Skills</a></li>
+        <li><a href="#certificates">Certificates</a></li>
         <li><a href="#volunteer">Volunteer</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -1030,7 +1111,6 @@
       </div>
       <div class="container hero-grid">
         <div class="hero-copy reveal">
-          <div class="hero-kicker">Firebase-Inspired Portfolio</div>
           <div class="hero-role">BTech CSE Student at Lovely Professional University</div>
           <h1>Rajvansh Mishra</h1>
           <div class="intro-line">Building as a <strong class="typing-text" id="typingText">Developer</strong></div>
@@ -1055,8 +1135,9 @@
           <span class="eyebrow">Quick Snapshot</span>
           <h3>BTech CSE Student | Developer | Event Leader</h3>
           <p style="margin-top: 0.9rem;">
-            A modern developer portfolio with a leadership edge, blending frontend growth, campus execution, and meaningful community work.
+            Computer Science student building frontend projects with strong experience in leadership, event execution, and real-world problem solving.
           </p>
+          <a class="button secondary" href="#certificates" style="margin: 1.4rem 0 1.6rem;">View Certificates</a>
           <div class="metrics">
             <div class="metric">
               <strong>15+</strong>
@@ -1093,7 +1174,7 @@
           <article class="card reveal">
             <h3>Professional Summary</h3>
             <p style="margin-top: 1rem;">
-              Rajvansh Mishra is a BTech Computer Science student at Lovely Professional University with a growing foundation in web development, programming, and user-focused thinking. He combines technical learning with practical leadership experience across student events and community initiatives.
+              I am a BTech Computer Science student at Lovely Professional University with a growing foundation in web development, programming, and user-focused thinking. I combine technical learning with practical leadership experience across student events and community initiatives.
             </p>
             <div class="about-stats">
               <div class="about-stat">
@@ -1114,10 +1195,10 @@
           <article class="card reveal">
             <h3>What I Bring</h3>
             <p style="margin-top: 1rem;">
-              A combination of technical curiosity and operational discipline. From managing campus events to supporting IPL 2025 event operations, Rajvansh brings reliability, adaptability, and clear communication to every role.
+              I bring a combination of technical curiosity and operational discipline. From managing campus events to supporting IPL 2025 event operations, I bring reliability, adaptability, and clear communication to every role.
             </p>
             <p style="margin-top: 1rem;">
-              He is comfortable learning fast, collaborating across teams, and turning plans into smooth execution while keeping the experience organized for everyone involved.
+              I am comfortable learning fast, collaborating across teams, and turning plans into smooth execution while keeping the experience organized for everyone involved.
             </p>
           </article>
         </div>
@@ -1222,7 +1303,7 @@
             <span class="eyebrow">Skills</span>
             <h2>Core strengths across tech and leadership</h2>
           </div>
-          <p>Animated indicators showcase areas of confidence and active growth.</p>
+          <p>My progress across technical skills, communication, and leadership.</p>
         </div>
         <div class="card reveal">
           <div class="skills-grid">
@@ -1247,16 +1328,8 @@
               <div class="progress-track"><div class="progress-bar" data-progress="88"></div></div>
             </div>
             <div class="skill-card">
-              <div class="skill-label"><span>Leadership</span><span>91%</span></div>
-              <div class="progress-track"><div class="progress-bar" data-progress="91"></div></div>
-            </div>
-            <div class="skill-card">
               <div class="skill-label"><span>Communication</span><span>89%</span></div>
               <div class="progress-track"><div class="progress-bar" data-progress="89"></div></div>
-            </div>
-            <div class="skill-card">
-              <div class="skill-label"><span>Event Leadership</span><span>93%</span></div>
-              <div class="progress-track"><div class="progress-bar" data-progress="93"></div></div>
             </div>
           </div>
         </div>
@@ -1279,6 +1352,102 @@
             <p style="margin-top: 1rem;">
               Taught underprivileged students, helping them strengthen their understanding through patient explanation, structured guidance, and consistent encouragement.
             </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section class="section certificate-showcase" id="certificates">
+      <div class="container">
+        <div class="section-header reveal">
+          <div>
+            <span class="eyebrow">Achievements</span>
+            <h2>Certificates that reflect leadership, execution, and recognition</h2>
+          </div>
+          <p>My list of achievements and recognitions earned through coordination, participation, and event execution.</p>
+        </div>
+        <div class="certificates-grid">
+          <article class="card certificate-card featured reveal" id="certificate-aaghaaz">
+            <div class="certificate-media">
+              <img
+                class="certificate-preview"
+                src="certificate-aaghaaz.png"
+                alt="Coordination Aaghaaz Talent Hunt 2.0 certificate preview"
+              >
+              <p class="certificate-note">Direct link: <a href="#certificate-aaghaaz">rajvanshcv.netlify.app/#certificate-aaghaaz</a></p>
+            </div>
+            <div class="certificate-meta">
+              <span class="certificate-badge">Featured Certificate</span>
+              <h3>Coordination | Aaghaaz Talent Hunt 2.0</h3>
+              <p>
+                Recognizing leadership, planning, and execution support for Aaghaaz Talent Hunt 2.0 through coordination, smooth communication, and dependable on-ground management.
+              </p>
+            </div>
+          </article>
+
+          <article class="card certificate-card reveal" id="certificate-swadesh">
+            <div class="certificate-media">
+              <img
+                class="certificate-preview"
+                src="certificate-swadesh.jpeg"
+                alt="Coordination Swadesh certificate preview"
+              >
+              <p class="certificate-note">Direct link: <a href="#certificate-swadesh">rajvanshcv.netlify.app/#certificate-swadesh</a></p>
+            </div>
+            <div class="certificate-meta">
+              <span class="certificate-badge">Certificate 02</span>
+              <h3>Coordination | Swadesh</h3>
+              <p>Highlights contribution to event coordination, team alignment, and organized execution for Swadesh.</p>
+            </div>
+          </article>
+
+          <article class="card certificate-card reveal" id="certificate-ipl">
+            <div class="certificate-media">
+              <img
+                class="certificate-preview"
+                src="certificate-ipl-2025.jpeg"
+                alt="Certificate of appreciation IPL 2025 preview"
+              >
+              <p class="certificate-note">Direct link: <a href="#certificate-ipl">rajvanshcv.netlify.app/#certificate-ipl</a></p>
+            </div>
+            <div class="certificate-meta">
+              <span class="certificate-badge">Certificate 03</span>
+              <h3>Certificate of Appreciation | IPL 2025</h3>
+              <p>Marks recognition for discipline, high-pressure event support, and dependable execution during IPL 2025 operations.</p>
+            </div>
+          </article>
+
+          <article class="card certificate-card reveal" id="certificate-techxpo">
+            <div class="certificate-media">
+              <img
+                class="certificate-preview"
+                src="certificate-techxpo.jpeg"
+                alt="TechXpo certificate preview"
+              >
+              <p class="certificate-note">Direct link: <a href="#certificate-techxpo">rajvanshcv.netlify.app/#certificate-techxpo</a></p>
+            </div>
+            <div class="certificate-meta">
+              <span class="certificate-badge">Certificate 04</span>
+              <h3>TechXpo Certificate</h3>
+              <p>Represents active involvement in technical exposure, presentation culture, and learning through innovation-focused participation.</p>
+            </div>
+          </article>
+
+          <article class="card certificate-card reveal" id="certificate-participation">
+            <div class="certificate-media">
+              <img
+                class="certificate-preview"
+                src="certificate-participation.jpeg"
+                alt="Participation certificate preview"
+              >
+              <p class="certificate-note">Direct link: <a href="#certificate-participation">rajvanshcv.netlify.app/#certificate-participation</a></p>
+            </div>
+            <div class="certificate-meta">
+              <span class="certificate-badge">Certificate 05</span>
+              <h3>Certificate of Participation</h3>
+              <p>Showcases commitment to learning, involvement, and stepping forward in meaningful academic or event-based opportunities.</p>
+            </div>
           </article>
         </div>
       </div>
@@ -1330,7 +1499,7 @@
 
   <footer class="footer">
     <div class="container">
-      <p>Designed and built as a modern personal portfolio for Rajvansh Mishra.</p>
+      <p>Designed and built by Rajvansh Mishra.</p>
     </div>
   </footer>
 
